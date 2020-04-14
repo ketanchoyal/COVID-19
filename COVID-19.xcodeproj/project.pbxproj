@@ -13,6 +13,14 @@
 		974B928B24453A1A00A3E4CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974B928924453A1A00A3E4CD /* Main.storyboard */; };
 		974B928D24453A1C00A3E4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 974B928C24453A1C00A3E4CD /* Assets.xcassets */; };
 		974B929024453A1C00A3E4CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974B928E24453A1C00A3E4CD /* LaunchScreen.storyboard */; };
+		974B929824455F4C00A3E4CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B929724455F4C00A3E4CD /* NetworkManager.swift */; };
+		974B929A2445854000A3E4CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B92992445854000A3E4CD /* Constants.swift */; };
+		974B929C2445866500A3E4CD /* CovidManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B929B2445866500A3E4CD /* CovidManager.swift */; };
+		974B92A524458BE300A3E4CD /* Corona.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B929F24458BE200A3E4CD /* Corona.swift */; };
+		974B92A624458BE300A3E4CD /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B92A024458BE200A3E4CD /* Tests.swift */; };
+		974B92A724458BE300A3E4CD /* Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B92A124458BE300A3E4CD /* Cases.swift */; };
+		974B92A824458BE300A3E4CD /* Deaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B92A224458BE300A3E4CD /* Deaths.swift */; };
+		974B92AA24458BE300A3E4CD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B92A424458BE300A3E4CD /* Response.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		974B928C24453A1C00A3E4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		974B928F24453A1C00A3E4CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		974B929124453A1C00A3E4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		974B929724455F4C00A3E4CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		974B92992445854000A3E4CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		974B929B2445866500A3E4CD /* CovidManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidManager.swift; sourceTree = "<group>"; };
+		974B929F24458BE200A3E4CD /* Corona.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Corona.swift; sourceTree = "<group>"; };
+		974B92A024458BE200A3E4CD /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		974B92A124458BE300A3E4CD /* Cases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cases.swift; sourceTree = "<group>"; };
+		974B92A224458BE300A3E4CD /* Deaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deaths.swift; sourceTree = "<group>"; };
+		974B92A424458BE300A3E4CD /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,8 @@
 		974B928224453A1A00A3E4CD /* COVID-19 */ = {
 			isa = PBXGroup;
 			children = (
+				974B92AB24459E1A00A3E4CD /* Services */,
+				974B929D24458BD100A3E4CD /* Model */,
 				974B928324453A1A00A3E4CD /* AppDelegate.swift */,
 				974B928524453A1A00A3E4CD /* SceneDelegate.swift */,
 				974B928724453A1A00A3E4CD /* ViewController.swift */,
@@ -63,8 +81,38 @@
 				974B928C24453A1C00A3E4CD /* Assets.xcassets */,
 				974B928E24453A1C00A3E4CD /* LaunchScreen.storyboard */,
 				974B929124453A1C00A3E4CD /* Info.plist */,
+				974B92992445854000A3E4CD /* Constants.swift */,
 			);
 			path = "COVID-19";
+			sourceTree = "<group>";
+		};
+		974B929D24458BD100A3E4CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				974B929E24458BD800A3E4CD /* Corona */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		974B929E24458BD800A3E4CD /* Corona */ = {
+			isa = PBXGroup;
+			children = (
+				974B92A124458BE300A3E4CD /* Cases.swift */,
+				974B929F24458BE200A3E4CD /* Corona.swift */,
+				974B92A224458BE300A3E4CD /* Deaths.swift */,
+				974B92A424458BE300A3E4CD /* Response.swift */,
+				974B92A024458BE200A3E4CD /* Tests.swift */,
+			);
+			path = Corona;
+			sourceTree = "<group>";
+		};
+		974B92AB24459E1A00A3E4CD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				974B929724455F4C00A3E4CD /* NetworkManager.swift */,
+				974B929B2445866500A3E4CD /* CovidManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +186,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974B929A2445854000A3E4CD /* Constants.swift in Sources */,
+				974B92A624458BE300A3E4CD /* Tests.swift in Sources */,
+				974B929824455F4C00A3E4CD /* NetworkManager.swift in Sources */,
 				974B928824453A1A00A3E4CD /* ViewController.swift in Sources */,
+				974B92AA24458BE300A3E4CD /* Response.swift in Sources */,
+				974B92A824458BE300A3E4CD /* Deaths.swift in Sources */,
+				974B929C2445866500A3E4CD /* CovidManager.swift in Sources */,
 				974B928424453A1A00A3E4CD /* AppDelegate.swift in Sources */,
+				974B92A724458BE300A3E4CD /* Cases.swift in Sources */,
 				974B928624453A1A00A3E4CD /* SceneDelegate.swift in Sources */,
+				974B92A524458BE300A3E4CD /* Corona.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3ZBX77VJ3;
 				INFOPLIST_FILE = "COVID-19/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3ZBX77VJ3;
 				INFOPLIST_FILE = "COVID-19/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
