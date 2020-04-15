@@ -18,7 +18,8 @@ class NetworkManager {
         
         static func getCountryFlag(country : String) -> String {
             if country.contains(Character.init("-")) {
-                let country = country.replacingOccurrences(of: "-", with: " ", options: .literal, range: nil)
+                let country = country.replacingOccurrences(of: "-", with: "%20", options: .literal, range: nil)
+                print("https://restcountries.eu/rest/v2/name/\(country)")
                 return "https://restcountries.eu/rest/v2/name/\(country)"
             } else {
                 return "https://restcountries.eu/rest/v2/name/\(country)"

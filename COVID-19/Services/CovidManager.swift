@@ -23,7 +23,6 @@ class CovidManager {
         let session = URLSession.shared
         session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             guard let data = data else {
-                print("here 1")
                 completion(false, nil)
                 return
             }
@@ -32,7 +31,6 @@ class CovidManager {
                 let corona = try decoder.decode(Corona.self, from: data)
                 completion(true, corona)
             } catch {
-                print("here 2")
                 completion(false, nil)
             }
         }
