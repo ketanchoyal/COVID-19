@@ -22,23 +22,23 @@ class ViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         lineChartUIView.delegate = self
-        
+        setUpChart()
+        getDataFromApi()
+    }
+    
+    func setUpChart() {
         lineChartUIView.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 0)
-        lineChartUIView.setViewPortOffsets(left: 5, top: 5, right: 5, bottom: 5)
+        lineChartUIView.setViewPortOffsets(left: 0, top: 0, right: 0, bottom: 0)
         lineChartUIView.dragEnabled = true
         lineChartUIView.setScaleEnabled(true)
         lineChartUIView.pinchZoomEnabled = false
         lineChartUIView.maxHighlightDistance = 10
-
         lineChartUIView.xAxis.enabled = false
-
         lineChartUIView.rightAxis.enabled = false
         lineChartUIView.leftAxis.enabled = false
         lineChartUIView.legend.enabled = true
-        
+        lineChartUIView.legend.textColor = .white
         lineChartUIView.animate(xAxisDuration: 2, yAxisDuration: 2)
-        
-        getDataFromApi()
     }
     
     func getDataFromApi() {
@@ -88,7 +88,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         let set1 = LineChartDataSet(entries: yVals1, label: "Total")
         set1.mode = .linear
         set1.lineWidth = 1.5
-        set1.cubicIntensity = 0.05
+        set1.cubicIntensity = 1
         set1.circleRadius = 0.8
         set1.setCircleColor(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
         set1.highlightColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
@@ -123,7 +123,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         set3.drawHorizontalHighlightIndicatorEnabled = false
         
         let data = LineChartData(dataSets: [set1, set2, set3])
-        data.setValueFont(.systemFont(ofSize: 10, weight: .light))
+        data.setValueFont(.systemFont(ofSize: 12, weight: .semibold))
+        data.setValueTextColor(.white)
         data.setDrawValues(true)
         self.lineChartUIView.data = data
     }
