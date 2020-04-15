@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 @IBDesignable extension UIView {
     func dropShadow(scale: Bool = true) {
@@ -23,12 +24,12 @@ import UIKit
     @IBInspectable var shadowColor : UIColor {
         set {
             layer.shadowColor = UIColor.black.cgColor
-            layer.shadowOpacity = 0.7
+            layer.shadowOpacity = 0.5
             layer.masksToBounds = false
             layer.shadowRadius = 5
             layer.shadowPath = UIBezierPath(rect: bounds).cgPath
             layer.shouldRasterize = true
-            layer.shadowOffset = CGSize(width: -2, height: 3)
+//            layer.shadowOffset = CGSize(width: -2, height: 3)
         }
         get {
             return UIColor.black

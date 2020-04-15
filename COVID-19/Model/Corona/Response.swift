@@ -24,4 +24,8 @@ struct Response: Codable {
         case day = "day"
         case time = "time"
     }
+    
+//    func getDate(){
+//        
+//    }
 }
