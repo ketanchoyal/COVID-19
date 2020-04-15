@@ -10,33 +10,43 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var worldDeathLabel: UILabel!
+    @IBOutlet weak var worldConfirmedLabel: UILabel!
+    @IBOutlet weak var worldRecoveredLabel: UILabel!
+    @IBOutlet weak var worldDeathPercentageLabel: UILabel!
+    @IBOutlet weak var worldRecoveryPercentageLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        FlagManager.getFlagOf(of: "sri-lanka") { (success, flag) in
+        getDataFromApi()
+    }
+    
+    func getDataFromApi() {
+        CovidManager.getCountriesData { (success, coronaData) in
             if success {
-                guard let flag = flag else {
+                guard let coronaData = coronaData else {
                     return
                 }
-                print(flag.flagLink)
-            }
-        }
-        
-        CovidManager.getCountriesData { (success, corona) in
-            if success {
-                guard let corona = corona else {
-                    return
+                
+                let worldData = coronaData.response.filter { (data) -> Bool in
+                    data.country == "All"
                 }
-                let x = corona.response.filter { (res) -> Bool in
-                    res.country == "All"
+                
+                if  worldData.count > 0 {
+                    self.setWorldData(worldData: worldData.first!)
                 }
-                print(x.first?.cases)
-            } else {
-                print("fail")
+                
             }
         }
     }
     
-    
+    func setWorldData(worldData : Response) {
+        DispatchQueue.main.async {
+            self.worldDeathLabel.text = worldData.deaths.total.description
+            self.worldConfirmedLabel.text = worldData.cases.total.description
+            self.worldRecoveredLabel.text = worldData.cases.recovered.description
+        }
+    }
 }
 

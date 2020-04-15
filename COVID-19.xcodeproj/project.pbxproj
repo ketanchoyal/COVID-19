@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,8 @@
 		9767093E2446A8C4002F72EF /* FlagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767093D2446A8C4002F72EF /* FlagManager.swift */; };
 		976709432446AA81002F72EF /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976709422446AA81002F72EF /* Flag.swift */; };
 		976709452446AAA1002F72EF /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976709442446AAA1002F72EF /* Flags.swift */; };
+		976709482446DD25002F72EF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976709472446DD25002F72EF /* UIView.swift */; };
+		9767094D24470EB5002F72EF /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 9767094C24470EB5002F72EF /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,7 @@
 		9767093D2446A8C4002F72EF /* FlagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagManager.swift; sourceTree = "<group>"; };
 		976709422446AA81002F72EF /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		976709442446AAA1002F72EF /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
+		976709472446DD25002F72EF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9767094D24470EB5002F72EF /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +82,7 @@
 		974B928224453A1A00A3E4CD /* COVID-19 */ = {
 			isa = PBXGroup;
 			children = (
+				976709462446DD15002F72EF /* Extensions */,
 				9767093C24469CBA002F72EF /* Utilities */,
 				974B92AB24459E1A00A3E4CD /* Services */,
 				974B929D24458BD100A3E4CD /* Model */,
@@ -140,6 +145,14 @@
 			path = Flag;
 			sourceTree = "<group>";
 		};
+		976709462446DD15002F72EF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				976709472446DD25002F72EF /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +169,9 @@
 			dependencies = (
 			);
 			name = "COVID-19";
+			packageProductDependencies = (
+				9767094C24470EB5002F72EF /* Charts */,
+			);
 			productName = "COVID-19";
 			productReference = 974B928024453A1A00A3E4CD /* COVID-19.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +200,9 @@
 				Base,
 			);
 			mainGroup = 974B927724453A1A00A3E4CD;
+			packageReferences = (
+				9767094B24470EB5002F72EF /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = 974B928124453A1A00A3E4CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -221,6 +240,7 @@
 				974B929C2445866500A3E4CD /* CovidManager.swift in Sources */,
 				974B928424453A1A00A3E4CD /* AppDelegate.swift in Sources */,
 				974B92A724458BE300A3E4CD /* Cases.swift in Sources */,
+				976709482446DD25002F72EF /* UIView.swift in Sources */,
 				976709432446AA81002F72EF /* Flag.swift in Sources */,
 				974B928624453A1A00A3E4CD /* SceneDelegate.swift in Sources */,
 				974B92A524458BE300A3E4CD /* Corona.swift in Sources */,
@@ -422,6 +442,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9767094B24470EB5002F72EF /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9767094C24470EB5002F72EF /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9767094B24470EB5002F72EF /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 974B927824453A1A00A3E4CD /* Project object */;
 }
