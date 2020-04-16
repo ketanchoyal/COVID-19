@@ -30,6 +30,10 @@ class NetworkManager {
                 return "https://restcountries.eu/rest/v2/name/\(country)"
             }
         }
+        
+        static func getAllFlag() -> String {
+            return "https://restcountries.eu/rest/v2/all"
+        }
     }
     
     struct Header {

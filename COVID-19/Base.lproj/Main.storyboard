@@ -300,7 +300,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dw0-uC-0Ds">
-                                        <rect key="frame" x="107" y="35.666666666666629" width="271" height="59.666666666666657"/>
+                                        <rect key="frame" x="107" y="45.666666666666629" width="271" height="59.666666666666657"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rWb-QJ-KnS">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="59.666666666666664"/>
@@ -355,13 +355,21 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Death Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvk-J9-aAD">
+                                        <rect key="frame" x="100" y="8" width="126" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="tXr-kh-46X" firstAttribute="top" secondItem="rC0-P5-dix" secondAttribute="top" constant="20" id="7Dd-9V-mjB"/>
                                     <constraint firstAttribute="trailing" secondItem="dw0-uC-0Ds" secondAttribute="trailing" constant="20" id="B8g-hA-FcD"/>
-                                    <constraint firstItem="dw0-uC-0Ds" firstAttribute="centerY" secondItem="rC0-P5-dix" secondAttribute="centerY" id="XbB-8j-BLe"/>
+                                    <constraint firstItem="cvk-J9-aAD" firstAttribute="top" secondItem="rC0-P5-dix" secondAttribute="top" constant="8" id="WQ5-Oj-yDk"/>
+                                    <constraint firstItem="dw0-uC-0Ds" firstAttribute="centerY" secondItem="rC0-P5-dix" secondAttribute="centerY" constant="10" id="XbB-8j-BLe"/>
                                     <constraint firstItem="tXr-kh-46X" firstAttribute="leading" secondItem="rC0-P5-dix" secondAttribute="leading" constant="20" id="Z0k-2U-VQe"/>
+                                    <constraint firstItem="cvk-J9-aAD" firstAttribute="leading" secondItem="tXr-kh-46X" secondAttribute="trailing" constant="30" id="hiK-PK-DC1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -404,6 +412,19 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCD-Ue-f7f">
+                                <rect key="frame" x="157" y="772.33333333333337" width="100" height="80"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -417,15 +438,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GKE-OM-Tw8" secondAttribute="bottom" id="GeJ-1p-M6j"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GKE-OM-Tw8" secondAttribute="trailing" constant="8" id="HaE-GI-mfE"/>
                             <constraint firstItem="rC0-P5-dix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Q5r-Xc-JAS"/>
+                            <constraint firstItem="aCD-Ue-f7f" firstAttribute="height" secondItem="aie-Qo-N7s" secondAttribute="height" multiplier="0.8" id="SBp-a1-GYl"/>
                             <constraint firstItem="rC0-P5-dix" firstAttribute="top" secondItem="RYu-ij-oQy" secondAttribute="bottom" constant="8" id="SOp-7Q-ZBP"/>
                             <constraint firstItem="GKE-OM-Tw8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="UdB-aE-Dod"/>
+                            <constraint firstItem="aCD-Ue-f7f" firstAttribute="centerY" secondItem="GKE-OM-Tw8" secondAttribute="centerY" id="bAy-kI-ggd"/>
                             <constraint firstItem="RYu-ij-oQy" firstAttribute="top" secondItem="a3A-4N-Uaw" secondAttribute="bottom" constant="8" id="bgc-eW-SUj"/>
                             <constraint firstItem="nEl-1h-AZx" firstAttribute="height" secondItem="GKE-OM-Tw8" secondAttribute="height" multiplier="1.01" id="cS9-wZ-wfm"/>
                             <constraint firstItem="a3A-4N-Uaw" firstAttribute="height" secondItem="nEl-1h-AZx" secondAttribute="height" multiplier="0.920792" id="fhf-VF-nIn"/>
                             <constraint firstItem="rC0-P5-dix" firstAttribute="top" secondItem="RYu-ij-oQy" secondAttribute="bottom" constant="8" id="kR1-VI-PcQ"/>
                             <constraint firstItem="RYu-ij-oQy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="mBE-r3-QAX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rC0-P5-dix" secondAttribute="trailing" constant="8" id="o7n-hM-bTK"/>
+                            <constraint firstItem="aCD-Ue-f7f" firstAttribute="width" secondItem="aie-Qo-N7s" secondAttribute="height" multiplier="1:1" id="qCf-Ws-vww"/>
                             <constraint firstItem="a3A-4N-Uaw" firstAttribute="top" secondItem="nEl-1h-AZx" secondAttribute="bottom" constant="8" id="u7d-eV-9Kv"/>
+                            <constraint firstItem="aCD-Ue-f7f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uE6-lB-9Vb"/>
                             <constraint firstItem="a3A-4N-Uaw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="unE-IK-5VI"/>
                             <constraint firstItem="a3A-4N-Uaw" firstAttribute="height" secondItem="RYu-ij-oQy" secondAttribute="height" multiplier="0.354962" id="zP5-kS-bKS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a3A-4N-Uaw" secondAttribute="trailing" constant="8" id="zpf-Zd-Wsc"/>
@@ -438,12 +463,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="countryConfirmedLabel" destination="oPi-Yk-FSf" id="zdT-VT-Nls"/>
+                        <outlet property="countryDeathLabel" destination="GH1-mB-d07" id="2pT-L5-gEE"/>
+                        <outlet property="countryIconImageView" destination="tXr-kh-46X" id="q9i-GE-6rU"/>
+                        <outlet property="countryNameLabel" destination="cvk-J9-aAD" id="uGz-zf-omV"/>
+                        <outlet property="countryRecoveredLabel" destination="znW-Fb-rUh" id="u0x-pk-86m"/>
                         <outlet property="lineChartUIView" destination="ZeY-aU-eRl" id="Wo1-5j-BmH"/>
                         <outlet property="worldConfirmedLabel" destination="hbh-4w-drw" id="0q3-fl-hE1"/>
                         <outlet property="worldDeathLabel" destination="OQc-cf-JPY" id="aUZ-sE-I8J"/>
-                        <outlet property="worldDeathPercentageLabel" destination="opB-Eg-4uY" id="6ip-jN-oXB"/>
+                        <outlet property="worldDeathRateLabel" destination="opB-Eg-4uY" id="6ip-jN-oXB"/>
                         <outlet property="worldRecoveredLabel" destination="zA4-IN-C06" id="mjn-4N-bW9"/>
-                        <outlet property="worldRecoveryPercentageLabel" destination="WnS-1a-JyZ" id="AjI-Kf-CmX"/>
+                        <outlet property="worldRecoveryRateLabel" destination="WnS-1a-JyZ" id="AjI-Kf-CmX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

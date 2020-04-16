@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97468FC72447FD2C00CA1BE8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97468FC62447FD2C00CA1BE8 /* LocationManager.swift */; };
+		97468FC92448408800CA1BE8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97468FC82448408800CA1BE8 /* UIImageView.swift */; };
 		974B928424453A1A00A3E4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B928324453A1A00A3E4CD /* AppDelegate.swift */; };
 		974B928624453A1A00A3E4CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B928524453A1A00A3E4CD /* SceneDelegate.swift */; };
 		974B928824453A1A00A3E4CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B928724453A1A00A3E4CD /* ViewController.swift */; };
@@ -22,13 +24,15 @@
 		974B92A824458BE300A3E4CD /* Deaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B92A224458BE300A3E4CD /* Deaths.swift */; };
 		974B92AA24458BE300A3E4CD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B92A424458BE300A3E4CD /* Response.swift */; };
 		9767093E2446A8C4002F72EF /* FlagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767093D2446A8C4002F72EF /* FlagManager.swift */; };
-		976709432446AA81002F72EF /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976709422446AA81002F72EF /* Flag.swift */; };
-		976709452446AAA1002F72EF /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976709442446AAA1002F72EF /* Flags.swift */; };
+		976709432446AA81002F72EF /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976709422446AA81002F72EF /* Country.swift */; };
+		976709452446AAA1002F72EF /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976709442446AAA1002F72EF /* Countries.swift */; };
 		976709482446DD25002F72EF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976709472446DD25002F72EF /* UIView.swift */; };
 		9767094D24470EB5002F72EF /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 9767094C24470EB5002F72EF /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97468FC62447FD2C00CA1BE8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		97468FC82448408800CA1BE8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		974B928024453A1A00A3E4CD /* COVID-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		974B928324453A1A00A3E4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		974B928524453A1A00A3E4CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +50,8 @@
 		974B92A224458BE300A3E4CD /* Deaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deaths.swift; sourceTree = "<group>"; };
 		974B92A424458BE300A3E4CD /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		9767093D2446A8C4002F72EF /* FlagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagManager.swift; sourceTree = "<group>"; };
-		976709422446AA81002F72EF /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
-		976709442446AAA1002F72EF /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
+		976709422446AA81002F72EF /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		976709442446AAA1002F72EF /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		976709472446DD25002F72EF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +128,7 @@
 				974B929724455F4C00A3E4CD /* NetworkManager.swift */,
 				974B929B2445866500A3E4CD /* CovidManager.swift */,
 				9767093D2446A8C4002F72EF /* FlagManager.swift */,
+				97468FC62447FD2C00CA1BE8 /* LocationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -139,8 +144,8 @@
 		976709412446AA72002F72EF /* Flag */ = {
 			isa = PBXGroup;
 			children = (
-				976709422446AA81002F72EF /* Flag.swift */,
-				976709442446AAA1002F72EF /* Flags.swift */,
+				976709422446AA81002F72EF /* Country.swift */,
+				976709442446AAA1002F72EF /* Countries.swift */,
 			);
 			path = Flag;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				976709472446DD25002F72EF /* UIView.swift */,
+				97468FC82448408800CA1BE8 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,17 +240,19 @@
 				974B92A624458BE300A3E4CD /* Tests.swift in Sources */,
 				974B929824455F4C00A3E4CD /* NetworkManager.swift in Sources */,
 				974B928824453A1A00A3E4CD /* ViewController.swift in Sources */,
+				97468FC72447FD2C00CA1BE8 /* LocationManager.swift in Sources */,
 				974B92AA24458BE300A3E4CD /* Response.swift in Sources */,
+				97468FC92448408800CA1BE8 /* UIImageView.swift in Sources */,
 				9767093E2446A8C4002F72EF /* FlagManager.swift in Sources */,
 				974B92A824458BE300A3E4CD /* Deaths.swift in Sources */,
 				974B929C2445866500A3E4CD /* CovidManager.swift in Sources */,
 				974B928424453A1A00A3E4CD /* AppDelegate.swift in Sources */,
 				974B92A724458BE300A3E4CD /* Cases.swift in Sources */,
 				976709482446DD25002F72EF /* UIView.swift in Sources */,
-				976709432446AA81002F72EF /* Flag.swift in Sources */,
+				976709432446AA81002F72EF /* Country.swift in Sources */,
 				974B928624453A1A00A3E4CD /* SceneDelegate.swift in Sources */,
 				974B92A524458BE300A3E4CD /* Corona.swift in Sources */,
-				976709452446AAA1002F72EF /* Flags.swift in Sources */,
+				976709452446AAA1002F72EF /* Countries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

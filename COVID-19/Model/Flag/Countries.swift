@@ -8,5 +8,5 @@
 
 import Foundation
 
-typealias Flags = [Flag]
+typealias Countries = [Country]
 

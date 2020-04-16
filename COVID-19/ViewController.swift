@@ -8,27 +8,43 @@
 
 import UIKit
 import Charts
+import CoreLocation
 
 class ViewController: UIViewController, ChartViewDelegate {
+    
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var worldDeathLabel: UILabel!
     @IBOutlet weak var worldConfirmedLabel: UILabel!
     @IBOutlet weak var worldRecoveredLabel: UILabel!
-    @IBOutlet weak var worldDeathPercentageLabel: UILabel!
-    @IBOutlet weak var worldRecoveryPercentageLabel: UILabel!
+    @IBOutlet weak var worldDeathRateLabel: UILabel!
+    @IBOutlet weak var worldRecoveryRateLabel: UILabel!
     @IBOutlet weak var lineChartUIView: LineChartView!
-    
+    @IBOutlet weak var countryIconImageView: UIImageView!
+    @IBOutlet weak var countryDeathLabel: UILabel!
+    @IBOutlet weak var countryConfirmedLabel: UILabel!
+    @IBOutlet weak var countryRecoveredLabel: UILabel!
+    @IBOutlet weak var countryNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
         lineChartUIView.delegate = self
         setUpChart()
         getDataFromApi()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        //        FlagManager.getAllCountries { (success, countries) in
+        //            if success {
+        //                print(countries?.count)
+        //            }
+        //        }
     }
     
     func setUpChart() {
         lineChartUIView.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 0)
-        lineChartUIView.setViewPortOffsets(left: 0, top: 0, right: 0, bottom: 0)
+        lineChartUIView.setViewPortOffsets(left: 0, top: 0, right: 0, bottom: 5)
         lineChartUIView.dragEnabled = true
         lineChartUIView.setScaleEnabled(true)
         lineChartUIView.pinchZoomEnabled = false
@@ -47,15 +63,12 @@ class ViewController: UIViewController, ChartViewDelegate {
                 guard let coronaData = coronaData else {
                     return
                 }
-                
                 let worldData = coronaData.response.filter { (data) -> Bool in
                     data.country == "All"
                 }
-                
                 if  worldData.count > 0 {
                     self.setWorldData(worldData: worldData.first!)
                 }
-                
             }
         }
         
@@ -93,7 +106,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         set1.setCircleColor(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
         set1.highlightColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         set1.fillColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-        set1.fillFormatter = CubicLineSampleFillFormatter()
         set1.drawFilledEnabled = true
         set1.setColor(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
         set1.drawHorizontalHighlightIndicatorEnabled = false
@@ -105,7 +117,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         set2.setCircleColor(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
         set2.highlightColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         set2.fillColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        set2.fillFormatter = CubicLineSampleFillFormatter()
         set2.drawFilledEnabled = true
         set2.setColor(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
         set2.drawHorizontalHighlightIndicatorEnabled = false
@@ -117,7 +128,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         set3.setCircleColor(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
         set3.highlightColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         set3.fillColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-        set3.fillFormatter = CubicLineSampleFillFormatter()
         set3.drawFilledEnabled = true
         set3.setColor(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
         set3.drawHorizontalHighlightIndicatorEnabled = false
@@ -139,16 +149,43 @@ class ViewController: UIViewController, ChartViewDelegate {
     }
     
     func calculateRates(worldData : Response) {
-        let deathRate = (Double(worldData.deaths.total) * 100.0)/Double(worldData.cases.total)
-        let recoveryRate = (Double(worldData.cases.recovered) * 100.0)/Double(worldData.cases.total)
-        worldDeathPercentageLabel.text = String(format:"%.2f", deathRate) + "%"
-        worldRecoveryPercentageLabel.text = String(format:"%.2f", recoveryRate) + "%"
+        let closedCase = worldData.deaths.total + worldData.cases.recovered
+        let deathRate = (Double(worldData.deaths.total) * 100.0)/Double(closedCase)
+        let recoveryRate = (Double(worldData.cases.recovered) * 100.0)/Double(closedCase)
+        worldDeathRateLabel.text = String(format:"%.2f", deathRate) + "%"
+        worldRecoveryRateLabel.text = String(format:"%.2f", recoveryRate) + "%"
     }
 }
 
-private class CubicLineSampleFillFormatter: IFillFormatter {
-    func getFillLinePosition(dataSet: ILineChartDataSet, dataProvider: LineChartDataProvider) -> CGFloat {
-        return -10
+extension ViewController : CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            print("Here")
+            LocationManager.getNearestCountryCovidData(currentLoaction: location) { (success, response, country) in
+                if success {
+                    guard let response = response else {
+                        return
+                    }
+                    print(response.country)
+                    guard let country = country else {
+                        self.setCountryData(countryData: response, country: nil)
+                        return
+                    }
+                    self.setCountryData(countryData: response, country: country)
+                }
+            }
+        }
+    }
+    
+    func setCountryData(countryData : Response, country : Country!) {
+        DispatchQueue.main.async {
+            self.countryDeathLabel.text = countryData.deaths.total.description
+            self.countryConfirmedLabel.text = countryData.cases.total.description
+            self.countryRecoveredLabel.text = countryData.cases.recovered.description
+            self.countryNameLabel.text = countryData.country
+            if (country != nil) {
+             self.countryIconImageView.load(url: URL(string: country.flagLink)!)
+            }
+        }
     }
 }
-
