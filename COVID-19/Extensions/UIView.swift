@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Charts
 
-@IBDesignable extension UIView {
+extension UIView {
     func dropShadow(scale: Bool = true) {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor

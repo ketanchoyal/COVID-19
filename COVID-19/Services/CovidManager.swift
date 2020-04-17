@@ -9,6 +9,7 @@
 import Foundation
 
 class CovidManager {
+    static var corona : Corona?
     static func getCountriesData(_ completion : @escaping (_ success: Bool, _ corona: Corona?) -> ()) {
         guard let url = URL(string: NetworkManager.APIURL.covid19DataRequest()) else {
             completion(false, nil)
@@ -29,6 +30,7 @@ class CovidManager {
             do {
                 let decoder = JSONDecoder()
                 let corona = try decoder.decode(Corona.self, from: data)
+                self.corona = corona
                 completion(true, corona)
             } catch {
                 completion(false, nil)

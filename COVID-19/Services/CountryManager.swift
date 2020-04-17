@@ -1,5 +1,5 @@
 //
-//  FlagsManager.swift
+//  CountryManager.swift
 //  COVID-19
 //
 //  Created by Ketan Choyal on 2020-04-14.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class FlagManager {
-    static func getCountryData(of country : String, _ completion : @escaping (_ success: Bool, _ flag: Country?) -> ()) {
-        guard let url = URL(string: NetworkManager.APIURL.getCountryFlag(country: country)) else {
+class CountryManager {
+    static func getCountryData(of country : String, _ completion : @escaping (_ success: Bool, _ country: Country?) -> ()) {
+        guard let url = URL(string: NetworkManager.APIURL.getCountryData(country: country)) else {
             completion(false, nil)
             return
         }
@@ -21,13 +21,12 @@ class FlagManager {
             }
             do {
                 let decoder = JSONDecoder()
-                let flags = try decoder.decode(Countries.self, from: data)
-                print(flags.count)
+                let countries = try decoder.decode(Countries.self, from: data)
                 let country = country.replacingOccurrences(of: "-", with: " ", options: .literal, range: nil)
-                let flag = flags.filter { (flag) -> Bool in
+                let filteredCountries = countries.filter { (flag) -> Bool in
                     flag.name.lowercased() == country.lowercased()
                 }
-                completion(true, flag.first)
+                completion(true, filteredCountries.first)
             } catch {
                 completion(false, nil)
             }
@@ -36,7 +35,7 @@ class FlagManager {
     }
     
     static func getAllCountries(_ completion : @escaping (_ success: Bool, _ flags: Countries?) -> ()) {
-        guard let url = URL(string: NetworkManager.APIURL.getAllFlag()) else {
+        guard let url = URL(string: NetworkManager.APIURL.getAllCountries()) else {
             completion(false, nil)
             return
         }
@@ -47,9 +46,8 @@ class FlagManager {
             }
             do {
                 let decoder = JSONDecoder()
-                let flags = try decoder.decode(Countries.self, from: data)
-                print(flags.count)
-                completion(true, flags)
+                let countries = try decoder.decode(Countries.self, from: data)
+                completion(true, countries)
             } catch {
                 completion(false, nil)
             }

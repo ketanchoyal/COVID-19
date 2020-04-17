@@ -21,17 +21,16 @@ class NetworkManager {
             return "https://covid-193.p.rapidapi.com/history?country=\(country)"
         }
         
-        static func getCountryFlag(country : String) -> String {
+        static func getCountryData(country : String) -> String {
             if country.contains(Character.init("-")) {
                 let country = country.replacingOccurrences(of: "-", with: "%20", options: .literal, range: nil)
-                print("https://restcountries.eu/rest/v2/name/\(country)")
                 return "https://restcountries.eu/rest/v2/name/\(country)"
             } else {
                 return "https://restcountries.eu/rest/v2/name/\(country)"
             }
         }
         
-        static func getAllFlag() -> String {
+        static func getAllCountries() -> String {
             return "https://restcountries.eu/rest/v2/all"
         }
     }

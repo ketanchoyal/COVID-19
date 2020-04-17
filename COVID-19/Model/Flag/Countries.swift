@@ -1,5 +1,5 @@
 //
-//  Flags.swift
+//  Countries.swift
 //  COVID-19
 //
 //  Created by Ketan Choyal on 2020-04-14.

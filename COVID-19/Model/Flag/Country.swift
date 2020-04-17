@@ -1,5 +1,5 @@
 //
-//  Flag.swift
+//  Country.swift
 //  COVID-19
 //
 //  Created by Ketan Choyal on 2020-04-14.
@@ -14,17 +14,21 @@ struct Country: Codable {
     let population: Int
     let latlng: [Double]
     let nativeName: String
-    let flagLink: String
+    let alpha2Code: String
 
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case population = "population"
         case latlng = "latlng"
         case nativeName = "nativeName"
-        case flagLink = "flag"
+        case alpha2Code = "alpha2Code"
     }
     
     func getLatLong() -> CLLocation {
         return CLLocation(latitude: self.latlng[0], longitude: self.latlng[1])
+    }
+    
+    func getFlagLink() -> String {
+        return "https://www.countryflags.io/\(self.alpha2Code)/flat/64.png"
     }
 }

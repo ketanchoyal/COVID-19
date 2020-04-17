@@ -10,7 +10,7 @@ import UIKit
 import Charts
 import CoreLocation
 
-class ViewController: UIViewController, ChartViewDelegate {
+class MainVC: UIViewController, ChartViewDelegate {
     
     let locationManager = CLLocationManager()
     
@@ -35,11 +35,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        //        FlagManager.getAllCountries { (success, countries) in
-        //            if success {
-        //                print(countries?.count)
-        //            }
-        //        }
     }
     
     func setUpChart() {
@@ -157,16 +152,14 @@ class ViewController: UIViewController, ChartViewDelegate {
     }
 }
 
-extension ViewController : CLLocationManagerDelegate {
+extension MainVC : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            print("Here")
             LocationManager.getNearestCountryCovidData(currentLoaction: location) { (success, response, country) in
                 if success {
                     guard let response = response else {
                         return
                     }
-                    print(response.country)
                     guard let country = country else {
                         self.setCountryData(countryData: response, country: nil)
                         return
@@ -182,10 +175,8 @@ extension ViewController : CLLocationManagerDelegate {
             self.countryDeathLabel.text = countryData.deaths.total.description
             self.countryConfirmedLabel.text = countryData.cases.total.description
             self.countryRecoveredLabel.text = countryData.cases.recovered.description
-            self.countryNameLabel.text = countryData.country
-            if (country != nil) {
-             self.countryIconImageView.load(url: URL(string: country.flagLink)!)
-            }
+            self.countryNameLabel.text = country.name
+            self.countryIconImageView.load(url: URL(string: country.getFlagLink())!)
         }
     }
 }
