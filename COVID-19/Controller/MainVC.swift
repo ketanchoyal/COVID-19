@@ -13,6 +13,8 @@ import CoreLocation
 class MainVC: UIViewController, ChartViewDelegate {
     
     let locationManager = CLLocationManager()
+    var navigationBarActivityIndicator = UIActivityIndicatorView()
+    var chartActivityIndicator = UIActivityIndicatorView()
     
     @IBOutlet weak var worldDeathLabel: UILabel!
     @IBOutlet weak var worldConfirmedLabel: UILabel!
@@ -25,16 +27,49 @@ class MainVC: UIViewController, ChartViewDelegate {
     @IBOutlet weak var countryConfirmedLabel: UILabel!
     @IBOutlet weak var countryRecoveredLabel: UILabel!
     @IBOutlet weak var countryNameLabel: UILabel!
+    @IBOutlet var activityIndicatorNavigationBarBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let imageView = UIImageView(frame:  CGRect(x: 0, y: 0, width: 20, height: 20))
+//        imageView.image = UIImage(named: "virus")
+//        imageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+//        let item = UIBarButtonItem(customView: imageView)
+//        self.navigationItem.setLeftBarButton(item, animated: true)
+        
         locationManager.delegate = self
         lineChartUIView.delegate = self
         setUpChart()
-        getDataFromApi()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getDataFromApi()
+    }
+    @IBAction func refreshDataPressed(_ sender: Any) {
+        getDataFromApi()
+    }
+    
+    func startIndicator() {
+        navigationBarActivityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        navigationBarActivityIndicator.color = .gray
+        let barButton = UIBarButtonItem(customView: navigationBarActivityIndicator)
+        self.navigationItem.setRightBarButton(barButton, animated: true)
+        navigationBarActivityIndicator.startAnimating()
+        
+        chartActivityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        chartActivityIndicator.color = .white
+        lineChartUIView.addSubview(chartActivityIndicator)
+        chartActivityIndicator.startAnimating()
+    }
+
+    func stopIndicator() {
+        navigationBarActivityIndicator.stopAnimating()
+        navigationItem.setRightBarButton(activityIndicatorNavigationBarBtn, animated: true)
     }
     
     func setUpChart() {
@@ -49,13 +84,16 @@ class MainVC: UIViewController, ChartViewDelegate {
         lineChartUIView.leftAxis.enabled = false
         lineChartUIView.legend.enabled = true
         lineChartUIView.legend.textColor = .white
-        lineChartUIView.animate(xAxisDuration: 2, yAxisDuration: 2)
+        lineChartUIView.animate(xAxisDuration: 3, yAxisDuration: 3)
     }
     
     func getDataFromApi() {
+        startIndicator()
+        locationManager.startUpdatingLocation()
         CovidManager.getCountriesData { (success, coronaData) in
             if success {
                 guard let coronaData = coronaData else {
+                    self.stopIndicator()
                     return
                 }
                 let worldData = coronaData.response.filter { (data) -> Bool in
@@ -64,17 +102,26 @@ class MainVC: UIViewController, ChartViewDelegate {
                 if  worldData.count > 0 {
                     self.setWorldData(worldData: worldData.first!)
                 }
+            } else {
+                self.stopIndicator()
             }
         }
         
         CovidManager.getCountryHistory(country: "All") { (success, worldHistoryData) in
             if success {
                 guard let worldHistory = worldHistoryData else {
+                    self.stopIndicator()
+                    self.chartActivityIndicator.stopAnimating()
                     return
                 }
                 DispatchQueue.main.async {
                     self.plotChart(data: worldHistory.response.reversed())
+                    self.chartActivityIndicator.stopAnimating()
+                    self.stopIndicator()
                 }
+            } else {
+                self.chartActivityIndicator.stopAnimating()
+                self.stopIndicator()
             }
         }
     }
@@ -165,6 +212,7 @@ extension MainVC : CLLocationManagerDelegate {
                         return
                     }
                     self.setCountryData(countryData: response, country: country)
+                    self.locationManager.stopUpdatingLocation()
                 }
             }
         }

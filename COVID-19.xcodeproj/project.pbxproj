@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97326AC1244C206500CF5331 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97326AC0244C206500CF5331 /* AboutVC.swift */; };
 		97468FC72447FD2C00CA1BE8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97468FC62447FD2C00CA1BE8 /* LocationManager.swift */; };
 		97468FC92448408800CA1BE8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97468FC82448408800CA1BE8 /* UIImageView.swift */; };
 		974B928424453A1A00A3E4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B928324453A1A00A3E4CD /* AppDelegate.swift */; };
 		974B928624453A1A00A3E4CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B928524453A1A00A3E4CD /* SceneDelegate.swift */; };
-		974B928824453A1A00A3E4CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B928724453A1A00A3E4CD /* ViewController.swift */; };
+		974B928824453A1A00A3E4CD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B928724453A1A00A3E4CD /* MainVC.swift */; };
 		974B928B24453A1A00A3E4CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974B928924453A1A00A3E4CD /* Main.storyboard */; };
 		974B928D24453A1C00A3E4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 974B928C24453A1C00A3E4CD /* Assets.xcassets */; };
 		974B929024453A1C00A3E4CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974B928E24453A1C00A3E4CD /* LaunchScreen.storyboard */; };
@@ -37,12 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97326AC0244C206500CF5331 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		97468FC62447FD2C00CA1BE8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		97468FC82448408800CA1BE8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		974B928024453A1A00A3E4CD /* COVID-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		974B928324453A1A00A3E4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		974B928524453A1A00A3E4CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		974B928724453A1A00A3E4CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		974B928724453A1A00A3E4CD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		974B928A24453A1A00A3E4CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		974B928C24453A1C00A3E4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		974B928F24453A1C00A3E4CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97326AC2244C245100CF5331 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				974B928E24453A1C00A3E4CD /* LaunchScreen.storyboard */,
+				974B928924453A1A00A3E4CD /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		97326AC3244C250300CF5331 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				974B929124453A1C00A3E4CD /* Info.plist */,
+				974B928324453A1A00A3E4CD /* AppDelegate.swift */,
+				974B928524453A1A00A3E4CD /* SceneDelegate.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		974B927724453A1A00A3E4CD = {
 			isa = PBXGroup;
 			children = (
@@ -100,17 +121,14 @@
 		974B928224453A1A00A3E4CD /* COVID-19 */ = {
 			isa = PBXGroup;
 			children = (
+				97326AC3244C250300CF5331 /* Supporting Files */,
+				97326AC2244C245100CF5331 /* View */,
 				976709462446DD15002F72EF /* Extensions */,
 				9767093C24469CBA002F72EF /* Utilities */,
 				974B92AB24459E1A00A3E4CD /* Services */,
 				974B929D24458BD100A3E4CD /* Model */,
 				97949906244955E2005439CB /* Controller */,
-				974B928324453A1A00A3E4CD /* AppDelegate.swift */,
-				974B928524453A1A00A3E4CD /* SceneDelegate.swift */,
-				974B928924453A1A00A3E4CD /* Main.storyboard */,
 				974B928C24453A1C00A3E4CD /* Assets.xcassets */,
-				974B928E24453A1C00A3E4CD /* LaunchScreen.storyboard */,
-				974B929124453A1C00A3E4CD /* Info.plist */,
 			);
 			path = "COVID-19";
 			sourceTree = "<group>";
@@ -185,11 +203,12 @@
 		97949906244955E2005439CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				974B928724453A1A00A3E4CD /* ViewController.swift */,
+				974B928724453A1A00A3E4CD /* MainVC.swift */,
 				9794990724495656005439CB /* SelfAssessmentVC.swift */,
 				9794990E24498CD7005439CB /* PreventiveMeasureVC.swift */,
 				9794991024498DAC005439CB /* SearchCountryVC.swift */,
 				97949912244999D6005439CB /* SearchedCountryTVCell.swift */,
+				97326AC0244C206500CF5331 /* AboutVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,9 +301,10 @@
 				974B929A2445854000A3E4CD /* Constants.swift in Sources */,
 				974B92A624458BE300A3E4CD /* Tests.swift in Sources */,
 				974B929824455F4C00A3E4CD /* NetworkManager.swift in Sources */,
-				974B928824453A1A00A3E4CD /* ViewController.swift in Sources */,
+				974B928824453A1A00A3E4CD /* MainVC.swift in Sources */,
 				97468FC72447FD2C00CA1BE8 /* LocationManager.swift in Sources */,
 				974B92AA24458BE300A3E4CD /* Response.swift in Sources */,
+				97326AC1244C206500CF5331 /* AboutVC.swift in Sources */,
 				97468FC92448408800CA1BE8 /* UIImageView.swift in Sources */,
 				9767093E2446A8C4002F72EF /* CountryManager.swift in Sources */,
 				9794990824495656005439CB /* SelfAssessmentVC.swift in Sources */,
