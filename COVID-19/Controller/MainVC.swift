@@ -83,7 +83,6 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     func getDataFromApi() {
         startIndicator()
-        locationManager.startUpdatingLocation()
         CovidManager.getCountriesData { (success, coronaData) in
             if success {
                 guard let coronaData = coronaData else {
@@ -205,7 +204,6 @@ extension MainVC : CLLocationManagerDelegate {
                         return
                     }
                     self.setCountryData(countryData: response, country: country)
-                    self.locationManager.stopUpdatingLocation()
                 }
             }
         }
