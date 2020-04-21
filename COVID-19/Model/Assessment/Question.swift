@@ -33,6 +33,6 @@ var questions = [
 ]
 
 var results = [
-    Question(question: "Call 911 or go directly to your nearest emergency department.", description: ["You may be affected"]),
+    Question(question: "Call medical helpline or go directly to your nearest emergency department.", description: ["You may be affected"]),
     Question(question: "You should stay at home and monitor your health because you are part of an at-risk group.", description: ["You do not need to contact a doctor or Telehealth Ontario for an assessment."])
 ]

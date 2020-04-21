@@ -9,25 +9,27 @@
 import UIKit
 
 class SearchedCountryTVCell: UITableViewCell {
-
+    
     @IBOutlet weak var deathsLabel: UILabel!
     @IBOutlet weak var confirmedLabel: UILabel!
     @IBOutlet weak var recoveredLabel: UILabel!
     @IBOutlet weak var deathRateLabel: UILabel!
     @IBOutlet weak var recoveryRateLabel: UILabel!
     @IBOutlet weak var countryNameLabel: UILabel!
+    @IBOutlet var countryRankLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     
-    func configureCell(countryData : Response) {
+    func configureCell(countryData : Response, countryRank : String) {
+        countryRankLabel.text = countryRank
         countryNameLabel.text = countryData.country
         deathsLabel.text = countryData.deaths.total.description
         recoveredLabel.text = countryData.cases.recovered.description
@@ -39,8 +41,16 @@ class SearchedCountryTVCell: UITableViewCell {
         let closedCase = countryData.deaths.total + countryData.cases.recovered
         let deathRate = (Double(countryData.deaths.total) * 100.0)/Double(closedCase)
         let recoveryRate = (Double(countryData.cases.recovered) * 100.0)/Double(closedCase)
-        deathRateLabel.text = String(format:"%.2f", deathRate) + "%"
-        recoveryRateLabel.text = String(format:"%.2f", recoveryRate) + "%"
+        if deathRate.isNaN {
+            deathRateLabel.text = "N.A."
+        } else {
+            deathRateLabel.text = String(format:"%.2f", deathRate) + "%"
+        }
+        if recoveryRate.isNaN {
+            recoveryRateLabel.text = "N.A."
+        } else {
+            recoveryRateLabel.text = String(format:"%.2f", recoveryRate) + "%"
+        }
     }
-
+    
 }

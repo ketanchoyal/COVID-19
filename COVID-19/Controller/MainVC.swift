@@ -32,12 +32,6 @@ class MainVC: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let imageView = UIImageView(frame:  CGRect(x: 0, y: 0, width: 20, height: 20))
-//        imageView.image = UIImage(named: "virus")
-//        imageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-//        let item = UIBarButtonItem(customView: imageView)
-//        self.navigationItem.setLeftBarButton(item, animated: true)
-        
         locationManager.delegate = self
         lineChartUIView.delegate = self
         setUpChart()
@@ -75,13 +69,13 @@ class MainVC: UIViewController, ChartViewDelegate {
     func setUpChart() {
         lineChartUIView.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 0)
         lineChartUIView.setViewPortOffsets(left: 0, top: 0, right: 0, bottom: 5)
-        lineChartUIView.dragEnabled = true
-        lineChartUIView.setScaleEnabled(true)
+        lineChartUIView.dragEnabled = false
+        lineChartUIView.setScaleEnabled(false)
         lineChartUIView.pinchZoomEnabled = false
         lineChartUIView.maxHighlightDistance = 10
         lineChartUIView.xAxis.enabled = false
         lineChartUIView.rightAxis.enabled = false
-        lineChartUIView.leftAxis.enabled = false
+        lineChartUIView.leftAxis.enabled = true
         lineChartUIView.legend.enabled = true
         lineChartUIView.legend.textColor = .white
         lineChartUIView.animate(xAxisDuration: 3, yAxisDuration: 3)
@@ -115,7 +109,7 @@ class MainVC: UIViewController, ChartViewDelegate {
                     return
                 }
                 DispatchQueue.main.async {
-                    self.plotChart(data: worldHistory.response.reversed())
+                    self.plotChart(data: worldHistory.filterData().reversed())
                     self.chartActivityIndicator.stopAnimating()
                     self.stopIndicator()
                 }
@@ -175,9 +169,8 @@ class MainVC: UIViewController, ChartViewDelegate {
         set3.drawHorizontalHighlightIndicatorEnabled = false
         
         let data = LineChartData(dataSets: [set1, set2, set3])
-        data.setValueFont(.systemFont(ofSize: 12, weight: .semibold))
         data.setValueTextColor(.white)
-        data.setDrawValues(true)
+        data.setDrawValues(false)
         self.lineChartUIView.data = data
     }
     
