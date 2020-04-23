@@ -207,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				9794990924495671005439CB /* Assessment */,
-				976709412446AA72002F72EF /* Flag */,
+				976709412446AA72002F72EF /* Country */,
 				974B929E24458BD800A3E4CD /* Corona */,
 			);
 			path = Model;
@@ -244,13 +244,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		976709412446AA72002F72EF /* Flag */ = {
+		976709412446AA72002F72EF /* Country */ = {
 			isa = PBXGroup;
 			children = (
 				976709422446AA81002F72EF /* Country.swift */,
 				976709442446AAA1002F72EF /* Countries.swift */,
 			);
-			path = Flag;
+			path = Country;
 			sourceTree = "<group>";
 		};
 		976709462446DD15002F72EF /* Extensions */ = {

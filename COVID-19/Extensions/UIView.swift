@@ -15,7 +15,7 @@ extension UIView {
             layer.shadowColor = UIColor.black.cgColor
             layer.shadowOpacity = 0.3
             layer.masksToBounds = false
-            layer.shadowRadius = 3
+            layer.shadowRadius = 10
             layer.shadowPath = UIBezierPath(rect: bounds).cgPath
             layer.shouldRasterize = false
         }

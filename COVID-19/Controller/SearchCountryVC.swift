@@ -38,7 +38,7 @@ class SearchCountryVC: UIViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let coronaData = CovidManager.corona {
             if (searchText.isInteger) {
-                if (Int(searchText)! < coronaData.getSortedCountries().count) {
+                if (Int(searchText)! < coronaData.getSortedCountries().count && Int(searchText)! > 0) {
                     filteredCountries = [coronaData.getSortedCountries()[(Int(searchText) ?? 2) - 1 ]]
                 } else {
                     filteredCountries = [coronaData.getSortedCountries()[coronaData.getSortedCountries().count - 1]]

@@ -74,8 +74,10 @@ class MainVC: UIViewController, ChartViewDelegate {
         lineChartUIView.pinchZoomEnabled = false
         lineChartUIView.maxHighlightDistance = 10
         lineChartUIView.xAxis.enabled = false
-        lineChartUIView.rightAxis.enabled = false
+        lineChartUIView.rightAxis.enabled = true
         lineChartUIView.leftAxis.enabled = true
+        lineChartUIView.leftAxis.labelPosition = .insideChart
+        lineChartUIView.leftAxis.labelTextColor = .white
         lineChartUIView.legend.enabled = true
         lineChartUIView.legend.textColor = .white
         lineChartUIView.animate(xAxisDuration: 3, yAxisDuration: 3)
@@ -148,7 +150,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         let set2 = LineChartDataSet(entries: yVals2, label: "Deaths")
         set2.mode = .linear
         set2.lineWidth = 1.5
-        set2.circleRadius = 0.8
+        set2.circleRadius = 1
         set2.setCircleColor(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
         set2.highlightColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         set2.fillColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -159,7 +161,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         let set3 = LineChartDataSet(entries: yVals3, label: "Recovered")
         set3.mode = .linear
         set3.lineWidth = 1.5
-        set3.circleRadius = 0.8
+        set3.circleRadius = 1
         set3.setCircleColor(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
         set3.highlightColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         set3.fillColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
