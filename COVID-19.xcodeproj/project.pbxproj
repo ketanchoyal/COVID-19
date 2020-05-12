@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		971BBE4E246B2AE4000077DB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 971BBE4D246B2AE4000077DB /* README.md */; };
+		971BBE4F246B2AE4000077DB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 971BBE4D246B2AE4000077DB /* README.md */; };
 		97241B0A244E8BF400DDE88E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97241B09244E8BF400DDE88E /* String.swift */; };
-		97281FA7244F5E9C00082615 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97281FA6244F5E9C00082615 /* NotificationCenter.framework */; };
+		97281FA7244F5E9C00082615 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97281FA6244F5E9C00082615 /* NotificationCenter.framework */; platformFilter = ios; };
 		97281FAA244F5E9C00082615 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97281FA9244F5E9C00082615 /* TodayViewController.swift */; };
 		97281FAD244F5E9C00082615 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97281FAB244F5E9C00082615 /* MainInterface.storyboard */; };
-		97281FB1244F5E9C00082615 /* WorldCount.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 97281FA5244F5E9C00082615 /* WorldCount.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		97281FB1244F5E9C00082615 /* WorldCount.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 97281FA5244F5E9C00082615 /* WorldCount.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		97281FB6244F604500082615 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B929724455F4C00A3E4CD /* NetworkManager.swift */; };
 		97281FB7244F604500082615 /* CovidManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B929B2445866500A3E4CD /* CovidManager.swift */; };
 		97281FB8244F604500082615 /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767093D2446A8C4002F72EF /* CountryManager.swift */; };
@@ -82,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		971BBE4D246B2AE4000077DB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		97241B09244E8BF400DDE88E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		97281FA5244F5E9C00082615 /* WorldCount.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WorldCount.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		97281FA6244F5E9C00082615 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -172,6 +175,7 @@
 		974B927724453A1A00A3E4CD = {
 			isa = PBXGroup;
 			children = (
+				971BBE4D246B2AE4000077DB /* README.md */,
 				974B928224453A1A00A3E4CD /* COVID-19 */,
 				97281FA8244F5E9C00082615 /* WorldCount */,
 				974B928124453A1A00A3E4CD /* Products */,
@@ -404,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971BBE4F246B2AE4000077DB /* README.md in Resources */,
 				97281FAD244F5E9C00082615 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +419,7 @@
 			files = (
 				974B929024453A1C00A3E4CD /* LaunchScreen.storyboard in Resources */,
 				974B928D24453A1C00A3E4CD /* Assets.xcassets in Resources */,
+				971BBE4E246B2AE4000077DB /* README.md in Resources */,
 				974B928B24453A1A00A3E4CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +486,7 @@
 /* Begin PBXTargetDependency section */
 		97281FB0244F5E9C00082615 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 97281FA4244F5E9C00082615 /* WorldCount */;
 			targetProxy = 97281FAF244F5E9C00082615 /* PBXContainerItemProxy */;
 		};
@@ -527,6 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ketanchoyal.COVID-19.WorldCount";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -546,6 +554,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ketanchoyal.COVID-19.WorldCount";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -601,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -655,7 +664,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -670,6 +679,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3ZBX77VJ3;
 				INFOPLIST_FILE = "COVID-19/Info.plist";
@@ -679,6 +689,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ketanchoyal.COVID-19";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -689,6 +701,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3ZBX77VJ3;
 				INFOPLIST_FILE = "COVID-19/Info.plist";
@@ -698,6 +711,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ketanchoyal.COVID-19";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -202,16 +202,16 @@ extension MainVC : CLLocationManagerDelegate {
                         return
                     }
                     guard let country = country else {
-                        self.setCountryData(countryData: response, country: nil)
+                        self.setNearestCountryData(countryData: response, country: nil)
                         return
                     }
-                    self.setCountryData(countryData: response, country: country)
+                    self.setNearestCountryData(countryData: response, country: country)
                 }
             }
         }
     }
     
-    func setCountryData(countryData : Response, country : Country!) {
+    func setNearestCountryData(countryData : Response, country : Country!) {
         DispatchQueue.main.async {
             self.countryDeathLabel.text = countryData.deaths.total.description
             self.countryConfirmedLabel.text = countryData.cases.total.description
