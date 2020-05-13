@@ -6,5 +6,8 @@
 
 ## Screenshots:
 
+<img src="https://github.com/ketanchoyal/COVID-19/raw/master/Screenshots/main_1.png"/>
+
+<img src="https://github.com/ketanchoyal/COVID-19/raw/master/Screenshots/main_2.png"/>
 
 
